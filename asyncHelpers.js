@@ -70,7 +70,8 @@ AsyncInterpreterRunner.prototype.step = function () {
 
 function AsyncScheduler() {
   this.settings = {
-    timePerProcessMS: 2
+    timePerProcessMS: 2,
+    executionDelay: 0
   };
 
   this.queue = [];
@@ -109,5 +110,5 @@ AsyncScheduler.prototype._doWork = function (doneCallback) {
   }
 
   // Reschedule
-  window.setTimeout(this._doWork.bind(this, doneCallback), 0);
+  window.setTimeout(this._doWork.bind(this, doneCallback), this.executionDelay);
 };
