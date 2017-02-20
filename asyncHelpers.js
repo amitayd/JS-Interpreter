@@ -110,5 +110,5 @@ AsyncScheduler.prototype._doWork = function (doneCallback) {
   }
 
   // Reschedule
-  window.setTimeout(this._doWork.bind(this, doneCallback), this.executionDelay);
+  window.setTimeout(this._doWork.bind(this, doneCallback), this.settings.executionDelay);
 };
